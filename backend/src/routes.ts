@@ -17,7 +17,7 @@ export const Routes = [{
   action: "save"
 }, {
   method: "delete",
-  route: "/polls",
+  route: "/polls/:id",
   controller: PollController,
   action: "remove"
 }];

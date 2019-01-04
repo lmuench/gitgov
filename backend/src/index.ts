@@ -36,17 +36,17 @@ createConnection().then(async connection => {
   await Poll.delete({});
 
   // insert new polls for test
-  const poll = new Poll();
-  poll.options = [
-    new Option('Option A'),
-    new Option('Option B'),
-    new Option('Option C')
-  ]
-  poll.options[0].votes = [
-    new Vote(),
-    new Vote()
-  ];
-  await poll.save();
+  // const poll = new Poll();
+  // poll.options = [
+  //   new Option('Option A'),
+  //   new Option('Option B'),
+  //   new Option('Option C')
+  // ]
+  // poll.options[0].votes = [
+  //   new Vote(),
+  //   new Vote()
+  // ];
+  // await poll.save();
 
   // delete poll
   // await poll.remove();

@@ -8,7 +8,7 @@ export class PollController {
   }
 
   async one(request: Request, response: Response, next: NextFunction) {
-    return Poll.findOne(request.params.id);
+    return Poll.findOne(request.params.id, { relations: ['options', 'options.votes'] });
   }
 
   async save(request: Request, response: Response, next: NextFunction) {
@@ -16,8 +16,8 @@ export class PollController {
   }
 
   async remove(request: Request, response: Response, next: NextFunction) {
-    let userToRemove = await Poll.findOne(request.params.id);
-  await Poll.remove(userToRemove);
+    const pollToRemove = await Poll.findOne(request.params.id)
+    return await Poll.remove(pollToRemove);
   }
 
 }
