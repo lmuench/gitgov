@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { FormGroup, ControlLabel, FormControl, HelpBlock, Button } from 'react-bootstrap';
+import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
 
 class PollForm extends Component {
   constructor(props) {
@@ -21,26 +21,21 @@ class PollForm extends Component {
     this.setState({ options });
   }
 
-  handleFocus() {
-    this.setState({ focus: true });
+  handleLessOptionsClick() {
+    const options = this.state.options;
+    if (options.length <= 1) return;
+    options.pop()
+    this.setState({ options });
   }
 
-  handleBlur() {
-    this.setState({ focus: false });
+  handleMoreOptionsClick() {
+    const options = this.state.options;
+    options.push('')
+    this.setState({ options });
   }
 
-  handleKeyPress(e) {
-    console.log(e.key);
-    if (e.key === 'Enter' && e.shiftKey) {
-      const options = this.state.options;
-      if (options.length === 1) return;
-      options.pop()
-      this.setState({ options });
-    } else if (e.key === 'Enter') {
-      const options = this.state.options;
-      options.push('')
-      this.setState({ options });
-    }
+  handleGeneratePollClick() {
+    // TODO
   }
 
   render() {
@@ -53,28 +48,23 @@ class PollForm extends Component {
             value={this.state.issue}
             placeholder={`Enter Link to Issue`}
             onChange={e => this.handleIssueChange(e)}
+            autoFocus
           />
-        </FormGroup>
+        <Button style={{ margin: 15 }} onClick={() => this.handleLessOptionsClick()}>Less Options</Button>
+        <Button style={{ margin: 15 }} onClick={() => this.handleMoreOptionsClick()}>More Options</Button>
         {this.state.options.map((_, i) => (
-        <FormGroup key={i} >
-          <FormControl
-            key={i}
-            type="text"
-            value={this.state.options[i]}
-            placeholder={`Enter Option ${i + 1}`}
-            onChange={e => this.handleOptionChange(e, i)}
-            onFocus={() => this.handleFocus()}
-            onBlur={() => this.handleBlur()}
-            onKeyPress={e => this.handleKeyPress(e)}
-          />
-        </FormGroup>))}
-        <HelpBlock style={{ fontSize: '75%' }}>
-          {this.state.options[this.state.options.length - 1].length > 0 &&
-          'Press Enter for Another Option'}
-          {this.state.options.length > 1 && this.state.options[this.state.options.length - 1].length < 1 &&
-          'Press Shift+Enter to Remove Last Option'}
-        </HelpBlock>
-        <Button onClick={() => this.handleGenerateClick}>Generate</Button>
+          <FormGroup key={i}>
+            <FormControl
+              key={i}
+              type="text"
+              value={this.state.options[i]}
+              onChange={e => this.handleOptionChange(e, i)}
+              placeholder={`Enter Option ${i + 1}`}
+            />
+          </FormGroup>
+        ))}
+        </FormGroup>
+        <Button onClick={() => this.handleGeneratePollClick()} bsSize="lg">Generate Poll</Button>
       </form>
     );
   }
