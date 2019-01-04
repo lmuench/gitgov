@@ -6,6 +6,7 @@ import { Request, Response } from "express";
 import { Routes } from "./routes";
 import { Poll } from "./entity/Poll";
 import { Option } from "./entity/Option";
+import { Vote } from "./entity/Vote";
 
 createConnection().then(async connection => {
 
@@ -40,6 +41,15 @@ createConnection().then(async connection => {
   ]
   await poll.save();
 
+  poll.options[0].votes = [
+    new Vote(),
+    new Vote()
+  ];
+  poll.options[0].votes.push(
+    new Vote()
+  );
+  await poll.save();
+  
   console.log("Express server has started on port 3000.");
 
 }).catch(error => console.log(error));

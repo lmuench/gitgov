@@ -4,7 +4,7 @@ import { Poll } from "../entity/Poll";
 export class PollController {
 
   async all(request: Request, response: Response, next: NextFunction) {
-    return Poll.find();
+    return Poll.find({ relations: ['options', 'options.votes'] });
   }
 
   async one(request: Request, response: Response, next: NextFunction) {

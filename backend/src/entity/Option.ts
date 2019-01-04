@@ -5,16 +5,16 @@ import { Vote } from "./Vote";
 @Entity()
 export class Option extends BaseEntity {
 
-  @PrimaryGeneratedColumn()
-  id: number;
-
   @ManyToOne(type => Poll, poll => poll.options)
   poll: Poll;
+
+  @PrimaryGeneratedColumn()
+  id: number;
 
   @Column()
   name: string;
 
-  @OneToMany(type => Vote, vote => vote.option)
+  @OneToMany(type => Vote, vote => vote.option, { cascade: true } )
   votes: Vote[];
 
   constructor(name: string) {
