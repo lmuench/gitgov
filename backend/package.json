@@ -1,7 +1,7 @@
 {
    "name": "gitgov-backend",
    "version": "0.0.1",
-   "description": "GitGov backend",
+   "description": "gitgov backend",
    "author": "Ludwig Muench",
    "license": "MIT",
    "devDependencies": {
