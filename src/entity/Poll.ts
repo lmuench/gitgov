@@ -5,13 +5,13 @@ import { Vote } from "./Vote";
 @Entity()
 export class Poll extends BaseEntity {
 
-    @PrimaryGeneratedColumn()
-    id: number;
+  @PrimaryGeneratedColumn()
+  id: number;
 
-    @OneToMany(type => Option, option => option.poll)
-    options: Option[];
+  @OneToMany(type => Option, option => option.poll, { cascade: true })
+  options: Option[];
 
-    @OneToMany(type => Vote, vote => vote.poll)
-    votes: Vote[];
+  @OneToMany(type => Vote, vote => vote.poll, { cascade: true })
+  votes: Vote[];
 
 }
