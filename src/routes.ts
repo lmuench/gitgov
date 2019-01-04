@@ -1,4 +1,4 @@
-import {PollController} from "./controller/PollController";
+import { PollController } from "./controller/PollController";
 
 export const Routes = [{
     method: "get",

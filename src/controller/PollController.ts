@@ -1,5 +1,5 @@
-import {NextFunction, Request, Response} from "express";
-import {Poll} from "../entity/Poll";
+import { NextFunction, Request, Response } from "express";
+import { Poll } from "../entity/Poll";
 
 export class PollController {
 
