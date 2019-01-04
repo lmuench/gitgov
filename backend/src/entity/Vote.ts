@@ -4,7 +4,7 @@ import { Option } from "./Option";
 @Entity()
 export class Vote extends BaseEntity {
 
-  @ManyToOne(type => Option, option => option.votes)
+  @ManyToOne(type => Option, option => option.votes, { onDelete: 'CASCADE' })
   option: Option;
 
   @PrimaryGeneratedColumn()

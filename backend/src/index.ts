@@ -32,23 +32,24 @@ createConnection().then(async connection => {
   // start express server
   app.listen(3000);
 
-  // insert new users for test
+  // clear database by using cascaded delete (clear() doesn't work with postgres)
+  await Poll.delete({});
+
+  // insert new polls for test
   const poll = new Poll();
   poll.options = [
     new Option('Option A'),
     new Option('Option B'),
     new Option('Option C')
   ]
-  await poll.save();
-
   poll.options[0].votes = [
     new Vote(),
     new Vote()
   ];
-  poll.options[0].votes.push(
-    new Vote()
-  );
   await poll.save();
+
+  // delete poll
+  // await poll.remove();
   
   console.log("Express server has started on port 3000.");
 
