@@ -1,5 +1,5 @@
-import { NextFunction, Request, Response } from "express";
-import { Poll } from "../entity/Poll";
+import { NextFunction, Request, Response } from 'express';
+import { Poll } from '../entity/Poll';
 
 export class PollController {
 
@@ -12,6 +12,7 @@ export class PollController {
   }
 
   async save(request: Request, response: Response, next: NextFunction) {
+    console.log(request.body);
     return Poll.save(request.body);
   }
 

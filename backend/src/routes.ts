@@ -1,23 +1,23 @@
-import { PollController } from "./controller/PollController";
+import { PollController } from './controller/PollController';
 
 export const Routes = [{
-  method: "get",
-  route: "/polls",
+  method: 'get',
+  route: '/polls',
   controller: PollController,
-  action: "all"
+  action: 'all'
 }, {
-  method: "get",
-  route: "/polls/:id",
+  method: 'get',
+  route: '/polls/:id',
   controller: PollController,
-  action: "one"
+  action: 'one'
 }, {
-  method: "post",
-  route: "/polls",
+  method: 'post',
+  route: '/polls',
   controller: PollController,
-  action: "save"
+  action: 'save'
 }, {
-  method: "delete",
-  route: "/polls/:id",
+  method: 'delete',
+  route: '/polls/:id',
   controller: PollController,
-  action: "remove"
+  action: 'remove'
 }];

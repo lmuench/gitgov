@@ -1,6 +1,6 @@
-import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany } from "typeorm";
-import { Poll } from "./Poll";
-import { Vote } from "./Vote";
+import { Entity, PrimaryGeneratedColumn, Column, BaseEntity, ManyToOne, OneToMany } from 'typeorm';
+import { Poll } from './Poll';
+import { Vote } from './Vote';
 
 @Entity()
 export class Option extends BaseEntity {

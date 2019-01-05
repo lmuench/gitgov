@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from "typeorm";
-import { Option } from "./Option";
+import { Entity, PrimaryGeneratedColumn, BaseEntity, ManyToOne } from 'typeorm';
+import { Option } from './Option';
 
 @Entity()
 export class Vote extends BaseEntity {

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { FormGroup, ControlLabel, FormControl, Button } from 'react-bootstrap';
+import api from '../api';
 
 class PollForm extends Component {
   constructor(props) {
@@ -35,7 +36,11 @@ class PollForm extends Component {
   }
 
   handleGeneratePollClick() {
-    // TODO
+    const poll = {
+      issue: this.state.issue,
+      options: this.state.options.map(option => ({ name: option }))
+    };
+    api.post.poll(poll);
   }
 
   render() {

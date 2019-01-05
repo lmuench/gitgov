@@ -5,16 +5,18 @@
    "author": "Ludwig Muench",
    "license": "MIT",
    "devDependencies": {
-      "ts-node": "3.3.0",
+      "@types/cors": "^2.8.4",
       "@types/node": "^8.0.29",
+      "ts-node": "3.3.0",
       "typescript": "2.5.2"
    },
    "dependencies": {
-      "typeorm": "0.2.11",
-      "reflect-metadata": "^0.1.10",
-      "pg": "^7.3.0",
+      "body-parser": "^1.18.1",
+      "cors": "^2.8.5",
       "express": "^4.15.4",
-      "body-parser": "^1.18.1"
+      "pg": "^7.3.0",
+      "reflect-metadata": "^0.1.10",
+      "typeorm": "0.2.11"
    },
    "scripts": {
       "start": "ts-node src/index.ts"
