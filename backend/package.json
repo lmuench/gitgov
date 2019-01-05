@@ -16,6 +16,8 @@
       "express": "^4.15.4",
       "pg": "^7.3.0",
       "reflect-metadata": "^0.1.10",
+      "svg.js": "^2.7.1",
+      "svgdom": "0.0.15",
       "typeorm": "0.2.11"
    },
    "scripts": {

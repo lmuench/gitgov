@@ -5,13 +5,13 @@ import { ChartService } from '../service/ChartService';
 export class PollController {
 
   async all(request: Request, response: Response, next: NextFunction) {
-    return Poll.find({ relations: ['options', 'options.votes'] });
+    return await Poll.find({ relations: ['options', 'options.votes'] });
   }
 
   async one(request: Request, response: Response, next: NextFunction) {
-    const poll = Poll.findOne(request.params.id, { relations: ['options', 'options.votes'] });
+    const poll = await Poll.findOne(request.params.id, { relations: ['options', 'options.votes'] });
     if (!request.params.charts) return poll;
-    return ChartService.one(request.params.id, request.query.type);
+    return await ChartService.one(poll);
   }
 
   async save(request: Request, response: Response, next: NextFunction) {
