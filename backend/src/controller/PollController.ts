@@ -10,6 +10,7 @@ export class PollController {
 
   async one(request: Request, response: Response, next: NextFunction) {
     const poll = await Poll.findOne(request.params.id, { relations: ['options', 'options.votes'] });
+    if (!poll) return poll;
     return ChartService.generateSvgChart(poll);
   }
 
