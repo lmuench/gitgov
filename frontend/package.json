@@ -7,7 +7,8 @@
     "npm": "^6.5.0",
     "react": "^16.7.0",
     "react-bootstrap": "^0.32.4",
-    "react-dom": "^16.7.0"
+    "react-dom": "^16.7.0",
+    "react-inlinesvg": "^0.8.3"
   },
   "devDependencies": {
     "react-scripts": "2.1.2"

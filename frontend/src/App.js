@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PollForm from './components/PollForm';
+import ChartPreview from './components/ChartPreview';
 import './App.css';
 
 class App extends Component {
@@ -13,6 +14,7 @@ class App extends Component {
         </header>
         <div className="App-body" >
           <PollForm />
+          <ChartPreview />
         </div>
       </div>
     );
