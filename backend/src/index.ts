@@ -23,7 +23,7 @@ createConnection().then(async connection => {
       if (null === result || undefined === result) {
         res.sendStatus(404);
       }
-      res.json(result);
+      res.send(result);
     });
   });
 
