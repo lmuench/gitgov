@@ -7,10 +7,10 @@ export class ChartService {
 
   static generateSvgChart(poll: Poll) { 
     const draw = SVG(document.documentElement);
-    const lengthFactor = ChartService.calculateLengthFactor(poll, 350);
+    const lengthFactor = ChartService.calculateLengthFactor(poll, 200);
     
     poll.options.forEach((option, i) => {
-      draw.rect(option.votes.length * lengthFactor, 15).fill('blue').move(50, 50 + 30 * i);
+      draw.rect(option.votes.length * lengthFactor, 15).radius(3).fill('#7fffd4').move(50, 50 + 30 * i);
     })
     
     return draw.svg();

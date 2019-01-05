@@ -33,7 +33,7 @@ createConnection().then(async connection => {
   app.listen(3000);
 
   // clear database by using cascaded delete (clear() doesn't work with postgres)
-  await Poll.delete({});
+  // await Poll.delete({});
 
   // insert new polls for test
   const poll = new Poll();
